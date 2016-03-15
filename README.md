@@ -6,7 +6,7 @@ AzMeta is a Windows command-line utility tool to query and set metadata, securit
 > This guide assumes that you are already familiar with [Azure Storage](https://azure.microsoft.com/services/storage/).
 
 ## Download and install AZMeta
-Donwload, unzip and install [the latest version of AZMeta](https://www.dropbox.com/s/m1sn25o99qyl9py/AZMeta.zip?dl=0)
+Donwload the zip file under releases. Unzip and install.
 
 > The current version has a very limited set of options. The initial effort was on getting and enabling CORS on services, but many other functionality may be acommodated for other scenarios where this functionlity is limited in the portal of visual studio tools.
 
