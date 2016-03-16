@@ -40,3 +40,9 @@ AzMeta --ConnectionString=`azure-connection-string` --Service=BLOB --SetCorsRule
 
 > If you are not sure about the values you need to set in your CORS rule, you can read more [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS).
 
+
+### Remove CORS settings
+AzMeta --ConnectionString=`azure-connection-string` --Service=BLOB --RemoveCorsRules
+
+> All rules in the collection will be delete
+
