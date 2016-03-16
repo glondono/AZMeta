@@ -5,6 +5,16 @@
     </StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartArguments>--ConnectionString=UseDevelopmentStorage=true --Service=BLOB --SetCorsRule=allowed-methods=get|put|post|options|head%3ballowed-header=%2a%3ballowed-origins=%2a%3bexposed-header=%2a%3bmax-age=1800</StartArguments>
+    <StartArguments>--ConnectionString=DefaultEndpointsProtocol=https%3bAccountName=ugasbdc%3bAccountKey=oRqc5ZY1qrHdvcvmm+BWI/+FS3SodKrLWkU9YhGxaPOKptkfHQD9FlQ0jOBoWcfR981ppMbBZGIH0XOn4SwUXQ== --Service=BLOB --GetServiceProperties</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PublishUrlHistory />
+    <InstallUrlHistory />
+    <SupportUrlHistory />
+    <UpdateUrlHistory />
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory />
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
 </Project>

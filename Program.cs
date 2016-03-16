@@ -31,6 +31,9 @@ namespace AZMeta
         [Option("GetListContainer", Required = false, HelpText = "Get list of container for BLOB Service")]
         public bool GetListContainer { get; set; }
 
+        [Option("RemoveCorsRules", Required = false, HelpText = "Remove all items in the CORS list")]
+        public bool RemoveCorsRules { get; set; }
+
         [HelpOption]
         public string GetUsage()
         {
@@ -198,6 +201,16 @@ namespace AZMeta
                         var rule = CreateCors(options.SetCorsRule);
                         var properties = blob.GetServiceProperties();
                         properties.Cors.CorsRules.Add(rule);
+                        blob.SetServiceProperties(properties);
+                        Console.WriteLine("getting all cors rules...");
+                        properties = blob.GetServiceProperties();
+                        Cors(properties.Cors);
+                    }
+                    if(options.RemoveCorsRules)
+                    {
+                        Console.WriteLine("removing cors rules...");
+                        var properties = blob.GetServiceProperties();
+                        properties.Cors.CorsRules.Clear();
                         blob.SetServiceProperties(properties);
                         Console.WriteLine("getting all cors rules...");
                         properties = blob.GetServiceProperties();
