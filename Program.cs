@@ -68,7 +68,7 @@ namespace AZMeta
         [Option("GetAdHocSASPermissions", Required = false, HelpText = "Ad Hoc SAS permisisons (Add, Create, Delete, List, None, Read, Write). Use , to separate multiple entries")]
         public string GetAdHocSASPermisisons { get; set; }
 
-        [Option("GetAdHocSASStart", Required = false, HelpText = "Ad Hoc SAS Start in minutes from current time. Leave empty to stat inmediatly")]
+        [Option("GetAdHocSASStart", Required = false, HelpText = "Ad Hoc SAS Start in minutes from current time. Leave empty to stat immediately")]
         public int GetAdHocSASStart { get; set; }
 
         [Option("GetAdHocSASExpire", Required = false, DefaultValue = 30, HelpText = "Ad Hoc SAS Expire in minutes from current time. By default is 30 min")]
@@ -92,8 +92,11 @@ namespace AZMeta
         [Option("SetServiceSASPolicyPermissions", Required = false, HelpText = "New Service SAS policy permissions based on SharedAccessBlobPermissions enum. (none,read,write,delete,list,add,create). For example, SetServiceSASPolicyPermissions=read|write ")]
         public string SetServiceSASPolicyPermissions { get; set; }
 
-        [Option("RemoveServiceSASPolicyContainer", Required = false, HelpText = "Container name to remove all service SAS policies")]
+        [Option("RemoveServiceSASPolicyContainer", Required = false, HelpText = "Container name to remove all service SAS policies if RemoveServiceSASPolicyName is not specified")]
         public string RemoveServiceSASPolicyContainer { get; set; }
+
+        [Option("RemoveServiceSASPolicyName", Required = false, HelpText = "Policy Name to remove for container on RemoveServiceSASPolicyContainer")]
+        public string RemoveServiceSASPolicyName { get; set; }
 
         [HelpOption]
         public string GetUsage()
@@ -183,7 +186,7 @@ namespace AZMeta
                         }
                         if(!string.IsNullOrEmpty(options.RemoveServiceSASPolicyContainer))
                         {
-                            blob.RemoveSAS(options.RemoveServiceSASPolicyContainer);
+                            blob.RemoveSAS(options.RemoveServiceSASPolicyContainer, options.RemoveServiceSASPolicyName);
                         }
                     }
                     else if (options.Service.Equals("QUEUE", StringComparison.InvariantCultureIgnoreCase))

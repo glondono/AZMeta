@@ -234,9 +234,8 @@ namespace AZMeta
             Console.WriteLine("\t\tdone");
         }
 
-        public void RemoveSAS(string container)
+        public void RemoveSAS(string container, string policy)
         {
-            Console.Write("removing service SAS policies on {0}...", container);
             var blobcontainer = client.GetContainerReference(container);
             if (!blobcontainer.Exists())
             {
@@ -246,7 +245,17 @@ namespace AZMeta
                 }
             }
             var blobpermissions = blobcontainer.GetPermissions();
-            blobpermissions.SharedAccessPolicies.Clear();
+            if (string.IsNullOrEmpty(policy))
+            {
+                Console.Write("removing all service SAS policies on {0}...", container);
+                blobpermissions.SharedAccessPolicies.Clear();
+                
+            }
+            else
+            {
+                Console.Write("removing service SAS policy {0} on {1}...", policy, container);
+                blobpermissions.SharedAccessPolicies.Remove(policy);
+            }
             blobcontainer.SetPermissions(blobpermissions);
             Console.WriteLine("\t\tdone");
         }
