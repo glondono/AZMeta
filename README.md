@@ -12,8 +12,10 @@ To see all available parameters, use --help.
 To get you connection string, open your storage account (classic) on the [Azure Portal](https://portal.azure.com), under Keys.
 
 If you have your account name and account key, your connection string will be
-> DefaultEndpointsProtocol=https; AccountName= your-storage-account-name; AccountKey= your-storage-account-key
 
+```
+DefaultEndpointsProtocol=https; AccountName= your-storage-account-name; AccountKey= your-storage-account-key
+```
 
 # Cross-Origin resource sharing (CORS)
 If you plan access a container directly from the browser, you will need to set a CORS rule in your storage service to allow the cross domain request from your custom domain. The scenarios I came across was using a container to host my static content and uploading files directly from the client side using Javascript. 
@@ -70,6 +72,7 @@ AzMeta.exe --ConnectionString=your-connection-string --Service=BLOB --GetService
 
 ## SET
 To create a new **SERVICE SAS POLICY** on a container you may use the following parameters
+
 | Parameter | Description | Required | Default |
 |-----------|-------------|----------|---------|
 | SetServiceSASPolicyContainer | Container name to set a new Service SAS policy | TRUE | |
