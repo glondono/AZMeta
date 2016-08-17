@@ -57,7 +57,7 @@ The use of Ad Hoc SAS are targeted, ideally to a specific BLOB for a particular 
  
 ## GET
 Get the **SERVICE SAS** applied to the specify container
-
+ 
 > AzMeta.exe --ConnectionString=your-connection-string --Service=BLOB --GetServiceSASPoliciesContainer=my-container
 
 ## SET
