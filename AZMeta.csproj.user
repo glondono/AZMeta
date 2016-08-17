@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
-    <StartArguments>
-    </StartArguments>
+    <StartArguments>--ConnectionString=DefaultEndpointsProtocol=https%3bAccountName=ugasbdc%3bAccountKey=oRqc5ZY1qrHdvcvmm+BWI/+FS3SodKrLWkU9YhGxaPOKptkfHQD9FlQ0jOBoWcfR981ppMbBZGIH0XOn4SwUXQ== --Service=BLOB --RemoveCorsRules</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartArguments>--ConnectionString=DefaultEndpointsProtocol=https%3bAccountName=ugasbdc%3bAccountKey=oRqc5ZY1qrHdvcvmm+BWI/+FS3SodKrLWkU9YhGxaPOKptkfHQD9FlQ0jOBoWcfR981ppMbBZGIH0XOn4SwUXQ== --Service=BLOB --GetServiceProperties</StartArguments>
+    <StartArguments>--ConnectionString=DefaultEndpointsProtocol=https%3bAccountName=ugasbdc%3bAccountKey=oRqc5ZY1qrHdvcvmm+BWI/+FS3SodKrLWkU9YhGxaPOKptkfHQD9FlQ0jOBoWcfR981ppMbBZGIH0XOn4SwUXQ== --Service=BLOB --GetAdHocSASContainer=files --GetAdHocSASBlob=5D0BD41F-F544-453F-B69B-8F6D7DFBC3D1 --GetAdHocSASPermissions=READ,WRITE</StartArguments>
   </PropertyGroup>
   <PropertyGroup>
     <PublishUrlHistory />

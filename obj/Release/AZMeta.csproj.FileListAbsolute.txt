@@ -1,6 +1,4 @@
 C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\bin\Release\AZMeta.exe.config
-C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\bin\Release\AZMeta.exe.manifest
-C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\bin\Release\AZMeta.application
 C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\bin\Release\AZMeta.exe
 C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\bin\Release\AZMeta.pdb
 C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\bin\Release\CommandLine.dll
@@ -56,8 +54,6 @@ C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\bin\Release
 C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\bin\Release\ru\System.Spatial.resources.dll
 C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\bin\Release\zh-Hans\System.Spatial.resources.dll
 C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\bin\Release\zh-Hant\System.Spatial.resources.dll
-C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\obj\Release\AZMeta.csprojResolveAssemblyReference.cache
-C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\obj\Release\AZMeta.exe.manifest
-C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\obj\Release\AZMeta.application
 C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\obj\Release\AZMeta.exe
 C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\obj\Release\AZMeta.pdb
+C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\obj\Release\AZMeta.csprojResolveAssemblyReference.cache

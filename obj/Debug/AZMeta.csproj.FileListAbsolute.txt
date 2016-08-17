@@ -1,4 +1,3 @@
-C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\obj\Debug\AZMeta.csprojResolveAssemblyReference.cache
 C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\bin\Debug\AZMeta.exe.config
 C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\bin\Debug\AZMeta.exe
 C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\bin\Debug\AZMeta.pdb
@@ -57,7 +56,4 @@ C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\bin\Debug\z
 C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\bin\Debug\zh-Hant\System.Spatial.resources.dll
 C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\obj\Debug\AZMeta.exe
 C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\obj\Debug\AZMeta.pdb
-C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\bin\Debug\AZMeta.exe.manifest
-C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\bin\Debug\AZMeta.application
-C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\obj\Debug\AZMeta.exe.manifest
-C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\obj\Debug\AZMeta.application
+C:\Users\glondono\documents\visual studio 2013\Projects\Unity\AZMeta\obj\Debug\AZMeta.csprojResolveAssemblyReference.cache
