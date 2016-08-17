@@ -1,8 +1,7 @@
 ## Overview
 AzMeta is a Windows command-line utility tool to perform certain task that are not possible using the Azure Portal.
 Most of the task are related to one time configurations or if you are doing client side development, (SPA and/or hybrid apps).
-Task like setting CORS,  hydrate queues using data on premise and creating SAS policies and Ad Hoc SAS for testing are some of the functionality you can do with AzMeta without any programming.  
-This guide assumes that you are already familiar with [Azure Storage](https://azure.microsoft.com/services/storage/), and that you have an storage account. 
+Task like setting CORS,  hydrate queues using data on premise and creating SAS policies and Ad Hoc SAS for testing are some of the functionality you can do with AzMeta without any programming. This guide assumes that you are already familiar with [Azure Storage](https://azure.microsoft.com/services/storage/), and that you have an storage account. 
 
 ## Clone, build and run
 Use Visual Studio to build and generate .exe files. On windows, open CMD on your project bin folder to run AzMeta.exe
@@ -22,14 +21,15 @@ If you plan access a container directly from the browser, you will need to set a
 ## GET
 To get all the CORS rules that are applied to your service account, use
 
-> AzMeta.exe --ConnectionString=your-connection-string --Service=BLOB --GetCorsRules
-
+```
+AzMeta.exe --ConnectionString=your-connection-string --Service=BLOB --GetCorsRules
+```
 
 ## SET
 To set a new CORS rule you may use the following parameters
 
 | Parameter | Description | Required | Default |
-|-|-|-|-|
+|-----------|-------------|----------|---------|
 | SetCorsRuleMethods   | (DELETE, GET, HEAD, MERGE, POST, OPTIONS and PUT) that the origin domain may use for a CORS request. Use comma to separate multiple entries. | YES |  |
 | SetCorsRuleOrigins   | The origin domains that are permitted to make a request against the storage service via CORS (use * for all or use comma for multiple domain entries) | NO | * |
 | SetCorsRuleHeadersAllowed | The request headers that the origin domain may specify on the CORS request (use * for all headers) | NO | * |
@@ -38,16 +38,22 @@ To set a new CORS rule you may use the following parameters
 
 To allow a container be your host for static files
 
-> AzMeta.exe --ConnectionString=your-connection-string --Service=BLOB --SetCorsRuleMethods=GET
+```
+AzMeta.exe --ConnectionString=your-connection-string --Service=BLOB --SetCorsRuleMethods=GET
+```
 
 To allow [posting files from the browser](http://gauravmantri.com/2013/02/16/uploading-large-files-in-windows-azure-blob-storage-using-shared-access-signature-html-and-javascript/)
 
-> AzMeta.exe --ConnectionString=your-connection-string --Service=BLOB --SetCorsRuleMethods=GET,PUT --SetCorsRuleOrigins=https://myapp.com
+```
+AzMeta.exe --ConnectionString=your-connection-string --Service=BLOB --SetCorsRuleMethods=GET,PUT --SetCorsRuleOrigins=https://myapp.com
+```
 
 ## DELETE
 This will remove all CORS rules set on the service
 
-> AzMeta.exe --ConnectionString=your-connection-string --Service=BLOB --RemoveCorsRules
+```
+AzMeta.exe --ConnectionString=your-connection-string --Service=BLOB --RemoveCorsRules
+```
 
 # Share Access Signatures (SAS)
 If your container is private, GET and PUT request will also need a [SAS](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/) as a way to grant limited access without sharing keys.
@@ -57,13 +63,15 @@ The use of Ad Hoc SAS are targeted, ideally to a specific BLOB for a particular 
  
 ## GET
 Get the **SERVICE SAS** applied to the specify container
- 
-> AzMeta.exe --ConnectionString=your-connection-string --Service=BLOB --GetServiceSASPoliciesContainer=my-container
+
+``` 
+AzMeta.exe --ConnectionString=your-connection-string --Service=BLOB --GetServiceSASPoliciesContainer=my-container
+```
 
 ## SET
 To create a new **SERVICE SAS POLICY** on a container you may use the following parameters
 | Parameter | Description | Required | Default |
-|-|-|-|-|
+|-----------|-------------|----------|---------|
 | SetServiceSASPolicyContainer | Container name to set a new Service SAS policy | TRUE | |
 | SetServiceSASPolicyName | Policy name | TRUE | |
 | SetServiceSASPolicyPermissions | ADD, CREATE, DELETE, LIST, READ, WRITE. Use comma to separate multiple entries | TRUE | |
@@ -72,12 +80,14 @@ To create a new **SERVICE SAS POLICY** on a container you may use the following 
 
 This will create a new policy on a container to allow READ access for the next hour and return the URL to the container with the SAS
 
-> AzMeta.exe --ConnectionString=your-connection-string --Service=BLOB --SetServiceSASPolicyContainer=my-container --SetServiceSASPolicyName=ReadForAnHour --SetServiceSASPolicyPermissions=LIST,READ --SetServiceSASPolicyExpire=60
+```
+AzMeta.exe --ConnectionString=your-connection-string --Service=BLOB --SetServiceSASPolicyContainer=my-container --SetServiceSASPolicyName=ReadForAnHour --SetServiceSASPolicyPermissions=LIST,READ --SetServiceSASPolicyExpire=60
+```
 
 To create a new **AD HOC SAS** on a BLOB or container you may use the following parameters
 
 | Parameter | Description | Required | Default |
-|-|-|-|-|
+|-----------|-------------|----------|---------|
 | GetAdHocSASContainer | Set a container for blob lookup when GetAdHocSASBlob is also used, or create SAS for specified container otherwise | TRUE | |
 | GetAdHocSASBlob | If specified, SAS will apply to this BLOB | FALSE | |
 | GetAdHocSASPermissions | ADD, CREATE, DELETE, LIST, READ, WRITE. Use comma to separate multiple entries | TRUE | |
@@ -86,22 +96,30 @@ To create a new **AD HOC SAS** on a BLOB or container you may use the following 
 
 This will return a new URL to the Container with the SAS to allow creating a new file for the next 10 minutes
 
-> AZMeta.exe --ConnectionString=your-connection-string --Service=BLOB --GetAdHocSASContainer=my-container --GetAdHocSASPermissions=CREATE,WRITE --GetAdHocSASExpire=10
+```
+AZMeta.exe --ConnectionString=your-connection-string --Service=BLOB --GetAdHocSASContainer=my-container --GetAdHocSASPermissions=CREATE,WRITE --GetAdHocSASExpire=10
+```
 
 This will return a new URL to the BLOB with the SAS to allow putting new blocks on a BLOB for the next 30 minutes
 
-> AZMeta.exe --ConnectionString=your-connection-string --Service=BLOB --GetAdHocSASContainer=my-container --GetAdHocSASBlob=my-blob --GetAdHocSASPermissions=WRITE --GetAdHocSASExpire=30
+```
+AZMeta.exe --ConnectionString=your-connection-string --Service=BLOB --GetAdHocSASContainer=my-container --GetAdHocSASBlob=my-blob --GetAdHocSASPermissions=WRITE --GetAdHocSASExpire=30
+```
 
 ## DELETE
 Removing a policy will revoke all SAS created using the policy.
 
 Remove all **Service SAS Policies** to the specify container. 
 
-> AzMeta.exe --ConnectionString=your-connection-string --Service=BLOB --RemoveServiceSASPolicyContainer=my-container
+```
+AzMeta.exe --ConnectionString=your-connection-string --Service=BLOB --RemoveServiceSASPolicyContainer=my-container
+```
 
 Remove **One Service SAS Policy** on the specify container.
 
-> AzMeta.exe --ConnectionString=your-connection-string --Service=BLOB --RemoveServiceSASPolicyContainer=my-container --RemoveServiceSASPolicyName=ReadForAnHour
+```
+AzMeta.exe --ConnectionString=your-connection-string --Service=BLOB --RemoveServiceSASPolicyContainer=my-container --RemoveServiceSASPolicyName=ReadForAnHour
+```
 
 # Hydrate Queues with CSV
 You can use the Visual Studio Cloud Explorer to add messages on development, but became impractical when you are migrating your application and need to reprocess thousands of items.
@@ -110,7 +128,7 @@ You can export the data you need, create a csv and then use AZMeta to create the
 To hydrate a queue with a csv, you may use the following parameters
 
 | Parameter | Description | Required | Default |
-| - | - | - | - |
+|-----------|-------------|----------|---------|
 | CsvToQueue |  QUEUE that will receive the messages | TRUE | |
 | CsvPath | Local file path to your csv file | TRUE | |
 | CsvJson | If set, row header will be used as properties and the message will be an object in javascript notation. On Queue processing, you can have a class with the same definition to deserialize. If not set, entire row will be the message as string | FALSE | |
@@ -125,7 +143,9 @@ FileID,Name,Size
 
 ## Hydrate queue as objects 
 
-> AzMeta.exe --ConnectionString=your-connection-string --Service=QUEUE --CsvToQueue=new-files --CsvPath=c:\temp\files.csv --CsvJson
+```
+AzMeta.exe --ConnectionString=your-connection-string --Service=QUEUE --CsvToQueue=new-files --CsvPath=c:\temp\files.csv --CsvJson
+```
 
 You will have the following messages created
 
@@ -148,7 +168,9 @@ Message 2
 
 ## Hydrate queue as string
 
-> AzMeta.exe --ConnectionString=your-connection-string --Service=QUEUE --CsvToQueue=new-files --CsvPath=c:\temp\files.csv
+```
+AzMeta.exe --ConnectionString=your-connection-string --Service=QUEUE --CsvToQueue=new-files --CsvPath=c:\temp\files.csv
+```
 
 You will have the following messages created
 
